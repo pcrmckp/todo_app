@@ -319,7 +319,7 @@
           </ul>
           @endif
           <input type="text" class="input-add" name="content">
-          <a href="/create"><input class="button-add" type="submit" value="追加"></a>
+          <a href="/todo/create"><input class="button-add" type="submit" value="追加"></a>
         </form>
         <table>
           <tbody>
@@ -331,89 +331,26 @@
             </tr>
             @foreach($todos as $todo)
             <tr>
-              <td>2021-06-21 07:44:33</td>
-              <form method="POST" action="/todo/update">@csrf
+              <td></td>
+              <form method="POST" action="todo/update">
+                @csrf
+                <input type="hidden" name="id" value="{{$todo->id}}">
                 <td>
                   <input type="text" class="input-update" value="{{$todo->content}}" name="content">
                 </td>
                 <td>
-                  <!-- <a href="/update/{{$todo->id}}"> --><button class="button-update">更新</button><!-- </a> -->
+                  <button class="button-update">更新</button>
                 </td>
+
                 <td>
-                  <form method="POST" action="/todo/delete/{{$todo->id}}"> @csrf
-                    <a href="/todo/delete/{{$todo->id}}"><button class="button-delete">削除</button>
+                  <form method="POST" action="todo/delete">
+                    @csrf
+                    <input type="hidden" name="id" value="{{$todo->id}}">
+                    <button class="button-delete">削除</button>
                   </form>
                 </td>
             </tr>
             @endforeach
-            <!-- <tr>
-              <td>2021-06-21 07:44:33</td>
-              <form action="" method="post">@csrf</form>
-              <input type="hidden" name="_token" value="">
-              <td>
-                <input type="text" class="input-update" value="" name="content">
-              </td>
-              <td>
-                <button class="button-update">更新</button>
-              </td>
-              <td>
-                <form action="" method="post">
-                  <input type="hidden" name="_token" value="">
-                  <button class="button-delete">削除</button>
-                </form>
-              </td>
-            </tr>
-            <tr>
-              <td>2021-06-21 07:44:33</td>
-              <form action="" method="post">@csrf</form>
-              <input type="hidden" name="_token" value="">
-              <td>
-                <input type="text" class="input-update" value="" name="content">
-              </td>
-              <td>
-                <button class="button-update">更新</button>
-              </td>
-              <td>
-                <form action="" method="post">
-                  <input type="hidden" name="_token" value="">
-                  <button class="button-delete">削除</button>
-                </form>
-              </td>
-            </tr>
-            <tr>
-              <td>2021-06-21 07:44:33</td>
-              <form action="" method="post">@csrf</form>
-              <input type="hidden" name="_token" value="">
-              <td>
-                <input type="text" class="input-update" value="" name="content">
-              </td>
-              <td>
-                <button class="button-update">更新</button>
-              </td>
-              <td>
-                <form action="" method="post">
-                  <input type="hidden" name="_token" value="">
-                  <button class="button-delete">削除</button>
-                </form>
-              </td>
-            </tr>
-            <tr>
-              <td>2021-06-21 07:44:33</td>
-              <form action="" method="post">@csrf</form>
-              <input type="hidden" name="_token" value="">
-              <td>
-                <input type="text" class="input-update" value="" name="content">
-              </td>
-              <td>
-                <button class="button-update">更新</button>
-              </td>
-              <td>
-                <form action="" method="post">
-                  <input type="hidden" name="_token" value="">
-                  <button class="button-delete">削除</button>
-                </form>
-              </td>
-            </tr> -->
 
 
           </tbody>

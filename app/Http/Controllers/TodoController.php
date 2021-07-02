@@ -24,19 +24,27 @@ class TodoController extends Controller
         return redirect('/');
     }
 
-    public function update(Request $request)
+    public function edit(Request $request)
     {
         $todo = Todo::find($request->id);
-        $todo->id = $request->id;
-        $todo->content = $request->content;
-        $todo->save();
+        return view('todos.index', [
+            "todos" => $todo
+        ]);
+    }
 
+    public function update(Request $request)
+    {
+        $todo = Todo::find($request->id)->update;
+        $todo->content =  $request->content;
+        $todo->id = $request->id;
+        $todo->save();
         return redirect('/');
     }
 
-    public function delete(Request $id)
+    public function delete(Request $request)
     {
-        Todo::find($id)->delete();
+        $todo = Todo::find($request->id)->delete;
+
         return redirect('/');
     }
 
