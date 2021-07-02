@@ -19,16 +19,18 @@ class TodoController extends Controller
     {
         $todo =  new Todo();
         $todo->content =  $request->content;
+        $todo->timestamps = false;
         $todo->save();
         return redirect('/');
     }
 
     public function update(Request $request)
     {
-        Todo::find($request->id)->update([
+        $todo = Todo::find($request->id);
+        $todo->id = $request->id;
+        $todo->content = $request->content;
+        $todo->save();
 
-            'content' => $request->content
-        ]);
         return redirect('/');
     }
 

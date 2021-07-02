@@ -318,7 +318,6 @@
             @endforeach
           </ul>
           @endif
-          <input type="hidden" name="_token" value="">
           <input type="text" class="input-add" name="content">
           <a href="/create"><input class="button-add" type="submit" value="追加"></a>
         </form>
@@ -334,7 +333,6 @@
             <tr>
               <td>2021-06-21 07:44:33</td>
               <form method="POST" action="/todo/update">@csrf
-                <input type="hidden" name="_token" value=" {{$todo->id}}">
                 <td>
                   <input type="text" class="input-update" value="{{$todo->content}}" name="content">
                 </td>
@@ -343,7 +341,6 @@
                 </td>
                 <td>
                   <form method="POST" action="/todo/delete/{{$todo->id}}"> @csrf
-                    <input type="hidden" name="_token" value="">
                     <a href="/todo/delete/{{$todo->id}}"><button class="button-delete">削除</button>
                   </form>
                 </td>
