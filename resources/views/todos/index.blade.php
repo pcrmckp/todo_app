@@ -5,14 +5,6 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script>
-    function deleteTodo(todoId) {
-      document.querySelector("#select_todo_id").value = todoId;
-
-      document.querySelector("#todo_form").action = "{{ route('todo.delete') }}";
-      document.querySelector("#todo_form").submit();
-    }
-  </script>
   <title>TodoApp</title>
   <style>
     html,
@@ -347,7 +339,7 @@
                   <input type="text" class="input-update" value="{{$todo->content}}" name="content">
                 </td>
                 <td>
-                  <a href="/update/{{$todo->id}}"><button class="button-update">更新</button></a>
+                  <!-- <a href="/update/{{$todo->id}}"> --><button class="button-update">更新</button><!-- </a> -->
                 </td>
                 <td>
                   <form method="POST" action="/todo/delete/{{$todo->id}}"> @csrf
