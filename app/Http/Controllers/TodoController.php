@@ -50,7 +50,7 @@ class TodoController extends Controller
     public function post(Request $request)
     {
         $validate_rule = [
-            'content' => 'required' | 20,
+            'content' => 'required | max:20',
         ];
         $this->validate($request, $validate_rule);
     }

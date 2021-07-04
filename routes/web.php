@@ -17,3 +17,4 @@ Route::get('/', 'App\Http\Controllers\TodoController@index');
 Route::post('/todo/create', 'App\Http\Controllers\TodoController@create');
 Route::post('/todo/update', 'App\Http\Controllers\TodoController@update');
 Route::post('/todo/delete', 'App\Http\Controllers\TodoController@delete');
+Route::post('/', 'App\Http\Controllers\TodoController@post');
