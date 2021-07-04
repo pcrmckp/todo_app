@@ -342,14 +342,15 @@
                 <td>
                   <button class="button-update">更新</button>
                 </td>
+              </form>
 
-                <td>
-                  <form method="POST" action="/todo/delete">
-                    @csrf
-                    <input type="hidden" name="id" value="{{$todo->id}}">
-                    <button class="button-delete">削除</button>
-                  </form>
-                </td>
+              <td>
+                <form method="POST" action="/todo/delete">
+                  @csrf
+                  <input type="hidden" name="id" value="{{$todo->id}}">
+                  <button class="button-delete">削除</button>
+                </form>
+              </td>
             </tr>
             @endforeach
 
