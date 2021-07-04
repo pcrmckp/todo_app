@@ -53,5 +53,6 @@ class TodoController extends Controller
             'content' => 'required | max:20',
         ];
         $this->validate($request, $validate_rule);
+        return redirect('/');
     }
 }
