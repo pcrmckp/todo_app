@@ -17,7 +17,7 @@ class CreateTodosTable extends Migration
             $table->bigIncrements('id', 20);
             $table->string('content', 191);
             $table->timestamp('created_at')->nullable();
-            $table->timestamp('update_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 

@@ -309,6 +309,7 @@
     <div class="card">
       <p class="title mb-15">Todo List</p>
       <div class="todo">
+
         <form method="POST" action="/todo/create" class="flex between mb-30">
           @csrf
           @if ($errors->any())
@@ -331,7 +332,7 @@
             </tr>
             @foreach($todos as $todo)
             <tr>
-              <td></td>
+              <td>{{$todo->updated_at}}</td>
               <form method="POST" action="todo/update">
                 @csrf
                 <input type="hidden" name="id" value="{{$todo->id}}">
@@ -343,7 +344,7 @@
                 </td>
 
                 <td>
-                  <form method="POST" action="todo/delete">
+                  <form method="POST" action="/todo/delete">
                     @csrf
                     <input type="hidden" name="id" value="{{$todo->id}}">
                     <button class="button-delete">削除</button>
