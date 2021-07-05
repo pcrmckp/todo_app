@@ -17,6 +17,10 @@ class TodoController extends Controller
 
     public function create(Request $request)
     {
+        $validator = $request->validate([
+            'content' => 'required | max:20',
+        ]);
+
         $todo =  new Todo();
         $todo->content =  $request->content;
         $todo->timestamps = false;
@@ -34,6 +38,10 @@ class TodoController extends Controller
 
     public function update(Request $request)
     {
+        $validator = $request->validate([
+            'content' => 'required | max:20',
+        ]);
+        
         $todo = Todo::find($request->id);
         $todo->content =  $request->content;
         $todo->id = $request->id;
@@ -47,12 +55,12 @@ class TodoController extends Controller
         return redirect('/');
     }
 
-    public function post(Request $request)
+    /* public function post(Request $request)
     {
         $validate_rule = [
             'content' => 'required | max:20',
         ];
         $this->validate($request, $validate_rule);
         return redirect('/');
-    }
+    } */
 }
