@@ -41,7 +41,7 @@ class TodoController extends Controller
         $validator = $request->validate([
             'content' => 'required | max:20',
         ]);
-        
+
         $todo = Todo::find($request->id);
         $todo->content =  $request->content;
         $todo->id = $request->id;
